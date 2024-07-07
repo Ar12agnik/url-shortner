@@ -28,6 +28,7 @@ def visit(request,url):
         url_object=url_hash.objects.get(id=id,hash=hash)
         if url_object:
             original_url=url_object.original_url
+            original_url=f"https://{original_url}"
             return redirect(original_url)
         else:
             return index(request,error="invalid url")
